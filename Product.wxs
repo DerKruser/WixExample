@@ -122,16 +122,23 @@
       <!-- http://robmensching.com/blog/posts/2010/5/2/the-wix-toolsets-remember-property-pattern/ -->
       <CustomAction Id='SaveCmdLineValueSERVERS' Property='CMDLINE_SERVERS' Value='[SERVERS]' Execute='firstSequence' />
       <CustomAction Id='SetFromCmdLineValueSERVERS' Property='SERVERS' Value='[CMDLINE_SERVERS]' Execute='firstSequence' />
+	  <CustomAction Id='UninstallPrevious' Property='UNINSTALLPREV' Value='[UNINSTALL_PREVIOUS]' Execute='firstSequence' />
       <InstallUISequence>
          <Custom Action='SaveCmdLineValueSERVERS' Before='AppSearch' />
          <Custom Action='SetFromCmdLineValueSERVERS' After='AppSearch'>
             CMDLINE_SERVERS
+         </Custom>
+		 <Custom Action='UninstallPrevious' After='AppSearch'>
+            UNINSTALL_PREVIOUS
          </Custom>
       </InstallUISequence>
       <InstallExecuteSequence>
          <Custom Action='SaveCmdLineValueSERVERS' Before='AppSearch' />
          <Custom Action='SetFromCmdLineValueSERVERS' After='AppSearch'>
             CMDLINE_SERVERS
+         </Custom>
+         <Custom Action='UninstallPrevious' After='AppSearch'>
+            UNINSTALL_PREVIOUS
          </Custom>
       </InstallExecuteSequence>
  
@@ -241,6 +248,7 @@
          <UIRef Id="WixUI_HK" />
       </UI>
  
+	  <Property Id="WIXUI_UNINSTALL" Value="UNINSTALLPREV" />
       <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
       <Property Id="WIXUI_SERVERS" Value="SERVERS" />
  

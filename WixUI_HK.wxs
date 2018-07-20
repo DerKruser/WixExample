@@ -46,7 +46,10 @@
          <Publish Dialog="InstallDirDlg" Control="ChangeFolder" Event="SpawnDialog" Value="BrowseDlg" Order="2">1</Publish>
  
          <Publish Dialog="ServerDlg" Control="Back" Event="NewDialog" Value="InstallDirDlg">1</Publish>
-         <Publish Dialog="ServerDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+         <Publish Dialog="ServerDlg" Control="Next" Event="NewDialog" Value="UninstallDlg">1</Publish>
+		 
+		 <Publish Dialog="UninstallDlg" Control="Back" Event="NewDialog" Value="ServerDlg">1</Publish>
+         <Publish Dialog="UninstallDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
  
          <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="ServerDlg" Order="1">NOT Installed</Publish>
          <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg" Order="2">Installed</Publish>
